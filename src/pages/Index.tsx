@@ -251,8 +251,8 @@ export default function Index() {
       </section>
 
       {/* Services Section */}
-      <section className="py-24 relative overflow-hidden bg-gradient-to-b from-secondary/5 via-background to-primary/5">
-        <div className="absolute inset-0 opacity-40"></div>
+      <section className="py-24 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-primary/12 via-accent/10 to-background"></div>
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -302,8 +302,8 @@ export default function Index() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-24 relative overflow-hidden bg-gradient-to-b from-primary/5 via-accent/5 to-background">
-        <div className="absolute inset-0 opacity-50"></div>
+      <section className="py-24 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-accent/8 to-primary/5"></div>
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -350,8 +350,8 @@ export default function Index() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-24 relative overflow-hidden bg-gradient-to-b from-background via-secondary/5 to-primary/8">
-        <div className="absolute inset-0 opacity-50"></div>
+      <section className="py-24 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-accent/5 to-background"></div>
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -412,24 +412,24 @@ export default function Index() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 relative overflow-hidden bg-gradient-to-br from-primary/8 via-primary-light/10 to-accent/8 dark:from-primary/25 dark:via-primary-dark/30 dark:to-primary-light/25">
-        <div className="absolute inset-0 dark:bg-gradient-to-br dark:from-primary/15 dark:via-primary-dark/20 dark:to-accent/15"></div>
+      <section className="py-24 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary to-primary-dark"></div>
         <div className="absolute inset-0">
           <motion.div
             animate={{ 
-              scale: [1, 1.2, 1],
-              opacity: [0.1, 0.2, 0.1],
+              scale: [1, 1.1, 1],
+              opacity: [0.3, 0.5, 0.3],
             }}
-            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-0 right-0 w-96 h-96 bg-primary-light/20 dark:bg-primary-light/30 rounded-full blur-3xl"
+            transition={{ duration: 8, repeat: Infinity }}
+            className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"
           />
           <motion.div
             animate={{ 
-              scale: [1.2, 1, 1.2],
-              opacity: [0.2, 0.1, 0.2],
+              scale: [1.1, 1, 1.1],
+              opacity: [0.5, 0.3, 0.5],
             }}
-            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute bottom-0 left-0 w-96 h-96 bg-accent/20 dark:bg-accent/30 rounded-full blur-3xl"
+            transition={{ duration: 10, repeat: Infinity }}
+            className="absolute bottom-0 left-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"
           />
         </div>
         
@@ -438,19 +438,15 @@ export default function Index() {
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
           >
-            <h2 className="text-4xl md:text-6xl font-display font-bold mb-6 text-foreground dark:text-white">
+            <h2 className="text-4xl md:text-6xl font-display font-bold mb-6 text-white">
               Ready to Elevate Your Brand?
             </h2>
-            <p className="text-xl mb-10 text-muted-foreground dark:text-white/80 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-xl mb-10 text-white/90 max-w-2xl mx-auto leading-relaxed">
               Let's discuss how we can help you achieve your business goals with our proven strategies
             </p>
             <Link to="/contact">
-              <Button 
-                size="lg" 
-                className="text-lg px-10 h-14 bg-white text-primary-dark dark:bg-white dark:text-primary-dark hover:bg-primary hover:text-white dark:hover:bg-primary dark:hover:text-white hover:shadow-[var(--shadow-hover)] hover:scale-105 transition-all duration-300 rounded-full font-bold border-2 border-white"
-              >
+              <Button size="lg" variant="glass" className="text-lg px-10 h-14 bg-white text-primary hover:bg-white/90 shadow-xl">
                 Let's Start Your Project
               </Button>
             </Link>
