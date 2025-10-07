@@ -35,7 +35,8 @@ function StatItem({ end, suffix = "", label }: StatProps) {
       ref={ref}
       initial={{ opacity: 0, scale: 0.8 }}
       whileInView={{ opacity: 1, scale: 1 }}
-      viewport={{ once: true }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.5 }}
       className="text-center"
     >
       <div className="text-4xl md:text-5xl font-display font-bold text-primary mb-2">

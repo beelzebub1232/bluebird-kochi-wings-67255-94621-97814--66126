@@ -24,7 +24,7 @@ export function ServiceCard({ icon: Icon, title, description, delay = 0 }: Servi
     <motion.div
       initial={{ opacity: 0, y: 30, scale: 0.9 }}
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
-      viewport={{ once: true }}
+      viewport={{ once: true, margin: "-50px" }}
       transition={{ delay, duration: 0.5, ease: [0.34, 1.56, 0.64, 1] }}
       whileHover={{ y: -8, transition: { duration: 0.3 } }}
     >
@@ -35,12 +35,9 @@ export function ServiceCard({ icon: Icon, title, description, delay = 0 }: Servi
           />
           
           <div className="relative z-10">
-            <motion.div 
-              className="w-16 h-16 bg-gradient-to-br from-primary-light to-primary-dark rounded-2xl flex items-center justify-center mb-6 group-hover:shadow-[var(--shadow-glow)] transition-all duration-300"
-              whileHover={{ scale: 1.1, rotate: 5 }}
-            >
+            <div className="w-16 h-16 bg-gradient-to-br from-primary-light to-primary-dark rounded-2xl flex items-center justify-center mb-6 group-hover:shadow-[var(--shadow-glow)] transition-all duration-300">
               <Icon className="h-8 w-8 text-white" />
-            </motion.div>
+            </div>
             <h3 className="text-xl font-display font-bold mb-3 group-hover:gradient-text transition-all duration-300">{title}</h3>
             <p className="text-foreground/80 leading-relaxed">{description}</p>
           </div>

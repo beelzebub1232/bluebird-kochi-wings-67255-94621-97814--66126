@@ -314,7 +314,8 @@ export default function Index() {
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5 }}
               className="inline-block px-4 py-2 mb-4 glass-card rounded-full"
             >
               <span className="text-sm font-semibold text-primary">Why Choose Us</span>
@@ -333,16 +334,13 @@ export default function Index() {
                 key={item.title}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ delay: index * 0.1, duration: 0.5 }}
                 className="bg-gradient-to-br from-primary-light/15 via-primary/10 to-accent/15 backdrop-blur-sm border border-primary/20 p-6 rounded-3xl hover-lift group cursor-pointer"
               >
-                <motion.div 
-                  className="w-12 h-12 bg-gradient-to-br from-primary-light to-primary rounded-2xl flex items-center justify-center mb-4 group-hover:shadow-[var(--shadow-glow)] transition-all duration-300"
-                  whileHover={{ scale: 1.1, rotate: 5 }}
-                >
+                <div className="w-12 h-12 bg-gradient-to-br from-primary-light to-primary rounded-2xl flex items-center justify-center mb-4 group-hover:shadow-[var(--shadow-glow)] transition-all duration-300">
                   <item.icon className="h-6 w-6 text-white" />
-                </motion.div>
+                </div>
                 <h3 className="text-xl font-display font-bold mb-2 group-hover:gradient-text transition-all duration-300">{item.title}</h3>
                 <p className="text-foreground/70 leading-relaxed text-sm">{item.description}</p>
               </motion.div>
@@ -364,7 +362,8 @@ export default function Index() {
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5 }}
               className="inline-block px-4 py-2 mb-4 glass-card rounded-full"
             >
               <span className="text-sm font-semibold text-primary">Testimonials</span>
@@ -383,8 +382,8 @@ export default function Index() {
                 key={testimonial.name}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ delay: index * 0.1, duration: 0.5 }}
                 className="glass-card p-8 rounded-3xl hover-lift"
               >
                 <div className="flex gap-1 mb-4">

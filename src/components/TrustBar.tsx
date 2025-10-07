@@ -12,7 +12,8 @@ export function TrustBar() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.5 }}
           className="text-center mb-8"
         >
           <h2 className="text-2xl md:text-3xl font-display font-bold mb-2">
