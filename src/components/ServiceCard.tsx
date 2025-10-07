@@ -25,8 +25,8 @@ export function ServiceCard({ icon: Icon, title, description, delay = 0 }: Servi
       initial={{ opacity: 0, y: 30, scale: 0.9 }}
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
       viewport={{ once: true, margin: "-50px" }}
-      transition={{ delay, duration: 0.5, ease: [0.34, 1.56, 0.64, 1] }}
-      whileHover={{ y: -8, transition: { duration: 0.3 } }}
+      transition={{ delay, duration: 0.5, type: "tween" }}
+      className="will-change-auto"
     >
       <Card className={`h-full cursor-pointer group overflow-hidden border border-primary/10 bg-gradient-to-br ${bgVariation} backdrop-blur-sm`}>
         <CardContent className="p-8 relative">

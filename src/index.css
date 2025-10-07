@@ -124,7 +124,12 @@ All colors MUST be HSL.
   }
 
   .hover-lift {
-    @apply transition-smooth hover:-translate-y-2 hover:shadow-[var(--shadow-premium)];
+    transition: box-shadow 0.3s ease, filter 0.3s ease;
+  }
+  
+  .hover-lift:hover {
+    box-shadow: var(--shadow-premium);
+    filter: brightness(1.05);
   }
 
   .gradient-text {

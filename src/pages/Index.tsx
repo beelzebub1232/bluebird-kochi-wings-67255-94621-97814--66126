@@ -335,7 +335,7 @@ export default function Index() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
-                transition={{ delay: index * 0.1, duration: 0.5 }}
+                transition={{ delay: index * 0.1, duration: 0.5, type: "tween" }}
                 className="bg-gradient-to-br from-primary-light/15 via-primary/10 to-accent/15 backdrop-blur-sm border border-primary/20 p-6 rounded-3xl hover-lift group cursor-pointer"
               >
                 <div className="w-12 h-12 bg-gradient-to-br from-primary-light to-primary rounded-2xl flex items-center justify-center mb-4 group-hover:shadow-[var(--shadow-glow)] transition-all duration-300">
@@ -383,7 +383,7 @@ export default function Index() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
-                transition={{ delay: index * 0.1, duration: 0.5 }}
+                transition={{ delay: index * 0.1, duration: 0.5, type: "tween" }}
                 className="glass-card p-8 rounded-3xl hover-lift"
               >
                 <div className="flex gap-1 mb-4">
