@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram } from "lucide-react";
+import { Mail, Phone, MapPin, Facebook, Linkedin, Instagram, MessageCircle } from "lucide-react";
 import { useState, useEffect } from "react";
 
 export function Footer() {
@@ -72,11 +72,13 @@ export function Footer() {
                 <Facebook className="h-4 w-4 sm:h-5 sm:w-5" />
               </motion.a>
               <motion.a 
-                href="#" 
+                href="https://wa.me/919633365300" 
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ scale: 1.2, y: -2 }}
                 className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-primary/20 to-accent/20 backdrop-blur-sm border border-primary/20 rounded-xl flex items-center justify-center text-foreground/70 hover:text-primary transition-all duration-300"
               >
-                <Twitter className="h-4 w-4 sm:h-5 sm:w-5" />
+                <MessageCircle className="h-4 w-4 sm:h-5 sm:w-5" />
               </motion.a>
               <motion.a 
                 href="#" 
@@ -180,7 +182,22 @@ export function Footer() {
                 <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gradient-to-br from-primary/20 to-accent/20 backdrop-blur-sm border border-primary/20 rounded-lg flex items-center justify-center flex-shrink-0">
                   <Phone className="h-3 w-3 sm:h-4 sm:w-4 text-primary" />
                 </div>
-                <span className="text-foreground/70 text-sm sm:text-base">+91 XXXXX XXXXX</span>
+                <a href="tel:+919633365300" className="text-foreground/70 hover:text-primary transition-all duration-300 text-sm sm:text-base">
+                  +91 96333 65300
+                </a>
+              </li>
+              <li className="flex items-center space-x-2 sm:space-x-3">
+                <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gradient-to-br from-primary/20 to-accent/20 backdrop-blur-sm border border-primary/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <MessageCircle className="h-3 w-3 sm:h-4 sm:w-4 text-primary" />
+                </div>
+                <a 
+                  href="https://wa.me/919633365300" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-foreground/70 hover:text-primary transition-all duration-300 text-sm sm:text-base"
+                >
+                  WhatsApp
+                </a>
               </li>
             </ul>
           </motion.div>

@@ -20,7 +20,9 @@ import {
   Clock,
   HeadphonesIcon,
   ShieldCheck,
-  Star
+  Star,
+  Phone,
+  MessageCircle
 } from "lucide-react";
 import { StatsCounter } from "@/components/StatsCounter";
 
@@ -87,21 +89,21 @@ const whyChooseUs = [
 
 const testimonials = [
   {
-    name: "Rajesh Kumar",
-    role: "CEO, TechStart Solutions",
-    content: "Bluebird transformed our digital presence completely. Their team understood our vision and delivered beyond expectations. The ROI has been remarkable.",
+    name: "Fatima Al-Zahra",
+    role: "Marketing Head, Dubai Commerce Hub",
+    content: "Working with Bluebird has been refreshing. They understood our market here in the Gulf and created campaigns that actually resonate with our customers. Our online sales increased by 35% in the first quarter alone.",
     rating: 5,
   },
   {
-    name: "Priya Menon",
-    role: "Marketing Director, Coastal Enterprises",
-    content: "Working with Bluebird was a game-changer for our business. Their strategic approach to digital marketing doubled our online engagement within months.",
-    rating: 5,
+    name: "Ravi Nair",
+    role: "Founder, Kerala Spice Exports",
+    content: "I needed help expanding our traditional spice business online. Bluebird didn't just build us a website - they helped us tell our story. Now we're shipping to 12 countries and our brand recognition has grown tremendously.",
+    rating: 4,
   },
   {
-    name: "Ahmed Al-Rashid",
-    role: "Founder, Maritime Logistics Co",
-    content: "The professionalism and expertise of the Bluebird team is unmatched. They delivered our project on time and the quality exceeded our expectations.",
+    name: "Omar Hassan",
+    role: "Operations Director, Muscat Trading Co.",
+    content: "The team at Bluebird delivered exactly what they promised, on time and within budget. Our new e-commerce platform handles our B2B orders seamlessly, and the mobile app has been a game changer for our field sales team.",
     rating: 5,
   },
 ];
@@ -182,11 +184,20 @@ export default function Index() {
                   Get a Free Consultation
                 </Button>
               </Link>
-              <Link to="/portfolio" className="w-full sm:w-auto">
-                <Button size="lg" variant="outline" className="w-full sm:w-auto text-base sm:text-lg px-6 sm:px-10 h-12 sm:h-14">
-                  See Our Work
-                </Button>
-              </Link>
+              <div className="flex gap-2 sm:gap-3 w-full sm:w-auto">
+                <a href="tel:+919633365300" className="flex-1 sm:flex-none">
+                  <Button size="lg" variant="outline" className="w-full sm:w-auto text-base sm:text-lg px-4 sm:px-6 h-12 sm:h-14">
+                    <Phone className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
+                    <span className="hidden sm:inline">Call Now</span>
+                  </Button>
+                </a>
+                <a href="https://wa.me/919633365300" target="_blank" rel="noopener noreferrer" className="flex-1 sm:flex-none">
+                  <Button size="lg" variant="outline" className="w-full sm:w-auto text-base sm:text-lg px-4 sm:px-6 h-12 sm:h-14">
+                    <MessageCircle className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
+                    <span className="hidden sm:inline">WhatsApp</span>
+                  </Button>
+                </a>
+              </div>
             </motion.div>
           </div>
         </div>
@@ -505,11 +516,20 @@ export default function Index() {
                   Let's Start Your Project
                 </Button>
               </Link>
-              <Link to="/services" className="w-full sm:w-auto">
-                <Button size="lg" variant="outline" className="w-full sm:w-auto text-base sm:text-lg px-6 sm:px-10 h-12 sm:h-14">
-                  Explore Services
-                </Button>
-              </Link>
+              <div className="flex gap-2 sm:gap-3">
+                <a href="tel:+919633365300" className="flex-1 sm:flex-none">
+                  <Button size="lg" variant="outline" className="w-full sm:w-auto text-base sm:text-lg px-4 sm:px-6 h-12 sm:h-14">
+                    <Phone className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
+                    <span className="hidden sm:inline">Call Now</span>
+                  </Button>
+                </a>
+                <a href="https://wa.me/919633365300" target="_blank" rel="noopener noreferrer" className="flex-1 sm:flex-none">
+                  <Button size="lg" variant="outline" className="w-full sm:w-auto text-base sm:text-lg px-4 sm:px-6 h-12 sm:h-14">
+                    <MessageCircle className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
+                    <span className="hidden sm:inline">WhatsApp</span>
+                  </Button>
+                </a>
+              </div>
             </div>
           </motion.div>
         </div>

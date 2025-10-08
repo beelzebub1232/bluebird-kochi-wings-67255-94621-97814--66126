@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, lazy, Suspense } from "react";
 import { motion } from "framer-motion";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
@@ -6,9 +6,11 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent } from "@/components/ui/card";
-import { MapPin, Mail, Phone, Send } from "lucide-react";
+import { MapPin, Mail, Phone, Send, MessageCircle } from "lucide-react";
 import { toast } from "sonner";
-import Map from "@/components/Map";
+
+// Lazy load the Map component since Leaflet is heavy
+const Map = lazy(() => import("@/components/Map"));
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -129,7 +131,33 @@ export default function Contact() {
                     </div>
                     <div>
                       <h3 className="font-semibold mb-1 text-sm sm:text-base">Phone</h3>
-                      <p className="text-muted-foreground text-sm sm:text-base">+91 XXXXX XXXXX</p>
+                      <a 
+                        href="tel:+919633365300"
+                        className="text-muted-foreground hover:text-primary transition-smooth text-sm sm:text-base"
+                      >
+                        +91 96333 65300
+                      </a>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="hover-lift">
+                <CardContent className="p-4 sm:p-6">
+                  <div className="flex items-start space-x-3 sm:space-x-4">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <MessageCircle className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold mb-1 text-sm sm:text-base">WhatsApp</h3>
+                      <a 
+                        href="https://wa.me/919633365300"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-muted-foreground hover:text-primary transition-smooth text-sm sm:text-base"
+                      >
+                        +91 96333 65300
+                      </a>
                     </div>
                   </div>
                 </CardContent>
@@ -228,7 +256,13 @@ export default function Contact() {
             transition={{ delay: 0.1 }}
             className="max-w-6xl mx-auto"
           >
-            <Map />
+            <Suspense fallback={
+              <div className="relative w-full h-[300px] sm:h-[400px] lg:h-[500px] rounded-3xl overflow-hidden shadow-lg bg-muted animate-pulse flex items-center justify-center">
+                <div className="text-muted-foreground">Loading map...</div>
+              </div>
+            }>
+              <Map />
+            </Suspense>
           </motion.div>
         </div>
       </section>

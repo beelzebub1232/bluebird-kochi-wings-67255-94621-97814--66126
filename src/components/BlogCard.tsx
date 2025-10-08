@@ -14,6 +14,7 @@ interface BlogCardProps {
   category: string;
   icon: LucideIcon;
   gradient: string;
+  featured?: boolean;
   delay?: number;
 }
 
@@ -27,6 +28,7 @@ export function BlogCard({
   category,
   icon: Icon,
   gradient,
+  featured = false,
   delay = 0
 }: BlogCardProps) {
   return (
@@ -36,13 +38,21 @@ export function BlogCard({
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-50px" }}
         transition={{ delay, duration: 0.5, type: "tween" }}
-        className="group glass-card rounded-3xl overflow-hidden hover-lift cursor-pointer h-full flex flex-col border border-primary/10 hover:border-primary/20 transition-all duration-300"
+        className={`group glass-card rounded-3xl overflow-hidden hover-lift cursor-pointer h-full flex flex-col transition-all duration-300 relative ${
+          featured 
+            ? "border-2 border-primary/30 hover:border-primary/50 shadow-[var(--shadow-glow)] bg-gradient-to-br from-primary/5 via-background to-accent/5" 
+            : "border border-primary/10 hover:border-primary/20"
+        }`}
       >
       {/* Content */}
       <div className="p-6 sm:p-8 flex-1 flex flex-col">
         {/* Category Badge */}
         <div className="flex items-center justify-between mb-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-gradient-to-r from-primary/10 to-accent/10 rounded-full border border-primary/20">
+          <div className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full border ${
+            featured 
+              ? "bg-gradient-to-r from-primary/20 to-accent/20 border-primary/30" 
+              : "bg-gradient-to-r from-primary/10 to-accent/10 border-primary/20"
+          }`}>
             <Icon className="h-3 w-3 text-primary" />
             <span className="text-xs font-semibold text-primary uppercase tracking-wider">{category}</span>
           </div>
