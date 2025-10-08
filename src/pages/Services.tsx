@@ -117,29 +117,43 @@ const services = [
 
 export default function Services() {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen page-flow-bg">
+      {/* Unified flowing background for entire page */}
+      <div className="fixed inset-0 mesh-gradient opacity-35 pointer-events-none"></div>
+      
       <Navigation />
       
       {/* Hero Section */}
-      <section className="pt-32 pb-16 relative overflow-hidden">
-        <div className="absolute inset-0 mesh-gradient opacity-50"></div>
-        <div className="container mx-auto px-4 relative z-10">
+      <section className="pt-24 sm:pt-32 pb-12 sm:pb-16 relative overflow-hidden seamless-section">
+        <div className="container mx-auto relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="text-center max-w-3xl mx-auto"
           >
             <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              className="inline-block px-4 py-2 mb-6 glass-card rounded-full"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="mb-8"
             >
-              <span className="text-sm font-semibold text-primary">What We Offer</span>
+              <div className="text-center">
+                <div className="inline-flex items-center gap-4 mb-4">
+                  <div className="flex gap-1">
+                    <div className="w-1 h-6 bg-gradient-to-b from-primary to-accent rounded-full"></div>
+                    <div className="w-1 h-4 bg-gradient-to-b from-accent to-primary rounded-full mt-1"></div>
+                  </div>
+                  <span className="text-base font-bold text-primary uppercase tracking-[0.2em]">What We Offer</span>
+                  <div className="flex gap-1">
+                    <div className="w-1 h-4 bg-gradient-to-b from-accent to-primary rounded-full mt-1"></div>
+                    <div className="w-1 h-6 bg-gradient-to-b from-primary to-accent rounded-full"></div>
+                  </div>
+                </div>
+              </div>
             </motion.div>
-            <h1 className="text-5xl md:text-7xl font-display font-bold mb-6">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-display font-bold mb-6 px-4">
               Our <span className="gradient-text">Services</span>
             </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground leading-relaxed px-4">
               Holistic solutions designed to grow and manage your business
             </p>
           </motion.div>
@@ -147,10 +161,9 @@ export default function Services() {
       </section>
 
       {/* Services Grid */}
-      <section className="py-16 pb-24 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-accent/8 to-primary/5"></div>
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <section className="py-12 sm:py-16 pb-16 sm:pb-20 relative overflow-hidden seamless-section">
+        <div className="container mx-auto relative z-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 px-4">
             {services.map((service, index) => (
               <ServiceCard
                 key={service.title}
@@ -163,28 +176,32 @@ export default function Services() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-primary to-primary-dark"></div>
-        <div className="absolute inset-0">
+      <section className="relative overflow-hidden pt-12 sm:pt-16 pb-16 sm:pb-24 seamless-section">
+        {/* Subtle floating elements for this section */}
+        <div className="absolute inset-0 pointer-events-none">
           <motion.div
-            animate={{ 
-              scale: [1, 1.1, 1],
-              opacity: [0.3, 0.5, 0.3],
-            }}
-            transition={{ duration: 8, repeat: Infinity }}
-            className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"
+            animate={{ scale: [1, 1.06, 1], rotate: [0, 8, 0], opacity: [0.12, 0.2, 0.12] }}
+            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+            className="absolute -top-12 -right-12 w-[20rem] h-[20rem] bg-gradient-to-br from-primary/18 to-accent/12 rounded-full blur-3xl"
+          />
+          <motion.div
+            animate={{ scale: [1.02, 0.98, 1.02], rotate: [0, -10, 0], opacity: [0.15, 0.08, 0.15] }}
+            transition={{ duration: 24, repeat: Infinity, ease: "linear" }}
+            className="absolute -bottom-16 -left-10 w-[18rem] h-[18rem] bg-gradient-to-br from-accent/15 to-primary/10 rounded-full blur-3xl"
           />
         </div>
-        <div className="container mx-auto px-4 text-center relative z-10">
+        <div className="container mx-auto relative z-10">
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5 }}
+            className="max-w-4xl mx-auto text-center glass-card rounded-3xl border border-primary/20 p-6 sm:p-10 md:p-16 hover-lift mx-4"
           >
-            <h2 className="text-4xl md:text-6xl font-display font-bold mb-6 text-white">
-              Need a Custom Solution?
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-display font-bold mb-6 leading-tight">
+              Need a <span className="gradient-text">Custom Solution</span>?
             </h2>
-            <p className="text-xl mb-8 text-white/90 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
               Every business is unique. Let's discuss how we can tailor our services to meet your specific needs and goals.
             </p>
           </motion.div>

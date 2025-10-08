@@ -10,6 +10,7 @@ const navItems = [
   { name: "About", path: "/about" },
   { name: "Services", path: "/services" },
   { name: "Our Work", path: "/portfolio" },
+  { name: "Blog", path: "/blog" },
   { name: "Contact", path: "/contact" },
 ];
 
@@ -17,6 +18,7 @@ export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [shouldAnimate, setShouldAnimate] = useState(false);
+  const [theme, setTheme] = useState<"light" | "dark">("dark");
   const location = useLocation();
 
   useEffect(() => {
@@ -41,88 +43,106 @@ export function Navigation() {
     setIsOpen(false);
   }, [location]);
 
+  useEffect(() => {
+    // Initialize theme from localStorage or default to dark
+    const savedTheme = (localStorage.getItem("theme") as "light" | "dark") || "dark";
+    setTheme(savedTheme);
+
+    // Listen for theme changes
+    const observer = new MutationObserver(() => {
+      const currentTheme = document.documentElement.classList.contains("dark") ? "dark" : "light";
+      setTheme(currentTheme);
+    });
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <>
       {/* Spacer for fixed nav */}
-      <div className="h-20" />
-      
+      <div className="h-16 sm:h-20" />
+
       <motion.nav
         initial={shouldAnimate ? { y: -100, opacity: 0 } : false}
         animate={shouldAnimate ? { y: 0, opacity: 1 } : {}}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className="fixed top-4 left-0 right-0 z-50 flex justify-center px-4"
+        className="fixed top-2 sm:top-4 left-0 right-0 z-50 flex justify-center px-2 sm:px-4"
       >
         <div className="w-full max-w-7xl">
-          <div className={`glass-nav rounded-full px-6 py-3 shadow-lg border-2 border-primary/30 transition-all duration-500 ${
-            isScrolled ? "scale-[0.98]" : "scale-100"
-          }`}>
-          <div className="flex items-center justify-between">
-            {/* Logo */}
-            <Link to="/" className="flex items-center space-x-3 group">
-              <motion.div 
-                whileHover={{ scale: 1.1, rotate: 5 }}
-                className="w-11 h-11 bg-gradient-to-br from-primary-light to-primary-dark rounded-full flex items-center justify-center shadow-lg"
-              >
-                <span className="text-white font-bold text-xl" aria-label="Bluebird logo">B</span>
-              </motion.div>
-              <span className="font-display text-xl font-bold hidden sm:block">
-                Bluebird<span className="gradient-text">.</span>
-              </span>
-            </Link>
+          <div className={`glass-nav rounded-full px-4 sm:px-6 py-2 sm:py-3 shadow-lg border-2 border-primary/60 hover:border-primary/80 transition-all duration-500 ${isScrolled ? "scale-[0.98] border-primary/80" : "scale-100"
+            }`}>
+            <div className="flex items-center justify-between">
+              {/* Logo */}
+              <Link to="/" className="flex items-center group">
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  className="h-7 w-24 sm:h-8 sm:w-28"
+                >
+                  <img
+                    src={theme === "dark" ? "/bluebird-logo.png" : "/bluebird-logo-d.png"}
+                    alt="Bluebird"
+                    className="h-full w-full object-contain"
+                  />
+                </motion.div>
+              </Link>
 
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-2">
-              {navItems.map((item) => (
-                <Link key={item.path} to={item.path}>
-                  <motion.div
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      className={`transition-all duration-300 ${
-                        location.pathname === item.path
+              {/* Desktop Navigation */}
+              <div className="hidden md:flex items-center space-x-2">
+                {navItems.map((item) => (
+                  <Link key={item.path} to={item.path}>
+                    <motion.div
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        className={`transition-all duration-300 ${location.pathname === item.path
                           ? "bg-primary text-primary-foreground shadow-md"
                           : "hover:bg-accent/10 text-foreground"
-                      }`}
-                    >
-                      {item.name}
-                    </Button>
-                  </motion.div>
+                          }`}
+                      >
+                        {item.name}
+                      </Button>
+                    </motion.div>
+                  </Link>
+                ))}
+              </div>
+
+              {/* Right Section */}
+              <div className="hidden md:flex items-center space-x-2 lg:space-x-3">
+                <ThemeToggle />
+                <Link to="/contact">
+                  <Button variant="gradient" size="sm" className="shadow-lg text-sm px-4">
+                    Get Started
+                  </Button>
                 </Link>
-              ))}
-            </div>
+              </div>
 
-            {/* Right Section */}
-            <div className="hidden md:flex items-center space-x-3">
-              <ThemeToggle />
-              <Link to="/contact">
-                <Button variant="gradient" size="sm" className="shadow-lg">
-                  Get Started
-                </Button>
-              </Link>
-            </div>
-
-            {/* Mobile Menu Button */}
-            <div className="md:hidden flex items-center space-x-2">
-              <ThemeToggle />
-              <Button
-                variant="ghost"
-                size="icon"
-                onClick={() => setIsOpen(!isOpen)}
-                aria-label="Toggle menu"
-                className="rounded-full"
-              >
-                <motion.div
-                  animate={{ rotate: isOpen ? 90 : 0 }}
-                  transition={{ duration: 0.3 }}
+              {/* Mobile Menu Button */}
+              <div className="md:hidden flex items-center space-x-1 sm:space-x-2">
+                <ThemeToggle />
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={() => setIsOpen(!isOpen)}
+                  aria-label="Toggle menu"
+                  className="rounded-full w-8 h-8 sm:w-10 sm:h-10"
                 >
-                  {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-                </motion.div>
-              </Button>
+                  <motion.div
+                    animate={{ rotate: isOpen ? 90 : 0 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    {isOpen ? <X className="h-4 w-4 sm:h-5 sm:w-5" /> : <Menu className="h-4 w-4 sm:h-5 sm:w-5" />}
+                  </motion.div>
+                </Button>
+              </div>
             </div>
-          </div>
           </div>
         </div>
 
@@ -134,9 +154,9 @@ export function Navigation() {
               animate={{ opacity: 1, y: 8, scale: 1 }}
               exit={{ opacity: 0, y: -20, scale: 0.95 }}
               transition={{ duration: 0.3 }}
-              className="md:hidden glass-nav rounded-3xl mt-2 p-4 shadow-[var(--shadow-premium)] w-full max-w-7xl"
+              className="md:hidden glass-nav rounded-3xl mt-2 p-3 sm:p-4 shadow-[var(--shadow-premium)] w-full max-w-7xl border-2 border-primary/60"
             >
-              <div className="space-y-2">
+              <div className="space-y-1 sm:space-y-2">
                 {navItems.map((item, index) => (
                   <motion.div
                     key={item.path}
@@ -147,7 +167,7 @@ export function Navigation() {
                     <Link to={item.path} className="block">
                       <Button
                         variant={location.pathname === item.path ? "default" : "ghost"}
-                        className="w-full justify-start"
+                        className="w-full justify-start text-sm sm:text-base h-10 sm:h-11"
                       >
                         {item.name}
                       </Button>
@@ -161,7 +181,7 @@ export function Navigation() {
                   className="pt-2"
                 >
                   <Link to="/contact" className="block">
-                    <Button variant="gradient" className="w-full">
+                    <Button variant="gradient" className="w-full text-sm sm:text-base h-10 sm:h-11">
                       Get Started
                     </Button>
                   </Link>

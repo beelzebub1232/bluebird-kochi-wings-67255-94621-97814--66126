@@ -19,10 +19,10 @@ const buttonVariants = cva(
         gradient: "bg-gradient-to-r from-primary-light via-primary to-primary-dark text-white hover:shadow-[var(--shadow-glow)] hover:scale-105 rounded-full",
       },
       size: {
-        default: "h-11 px-6 py-2",
-        sm: "h-9 px-4",
-        lg: "h-14 px-10 text-base",
-        icon: "h-11 w-11 rounded-full",
+        default: "h-10 sm:h-11 px-4 sm:px-6 py-2",
+        sm: "h-8 sm:h-9 px-3 sm:px-4",
+        lg: "h-12 sm:h-14 px-6 sm:px-10 text-sm sm:text-base",
+        icon: "h-10 w-10 sm:h-11 sm:w-11 rounded-full",
       },
     },
     defaultVariants: {

@@ -40,39 +40,46 @@ const values = [
 
 export default function About() {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen page-flow-bg">
+      {/* Unified flowing background for entire page */}
+      <div className="fixed inset-0 mesh-gradient opacity-35 pointer-events-none"></div>
+      
       <Navigation />
       
       {/* Hero Section */}
-      <section className="pt-32 pb-20 relative overflow-hidden">
-        <div className="absolute inset-0 mesh-gradient opacity-50"></div>
-        <div className="container mx-auto px-4 relative z-10">
+      <section className="pt-24 sm:pt-32 pb-16 sm:pb-20 relative overflow-hidden seamless-section">
+        <div className="container mx-auto relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="max-w-4xl mx-auto text-center"
           >
             <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              className="inline-block px-4 py-2 mb-6 glass-card rounded-full"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="mb-8"
             >
-              <span className="text-sm font-semibold text-primary">About Bluebird</span>
+              <div className="text-center">
+                <div className="inline-flex items-center gap-3 mb-4">
+                  <div className="w-8 h-px bg-gradient-to-r from-transparent to-primary/60"></div>
+                  <div className="relative">
+                    <span className="text-base font-bold text-primary uppercase tracking-[0.25em] relative z-10">About Bluebird</span>
+                    <div className="absolute -inset-2 bg-gradient-to-r from-primary/5 via-primary/10 to-primary/5 blur-xl rounded-full"></div>
+                  </div>
+                  <div className="w-8 h-px bg-gradient-to-l from-transparent to-primary/60"></div>
+                </div>
+              </div>
             </motion.div>
-            <h1 className="text-5xl md:text-7xl font-display font-bold mb-8 leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-display font-bold mb-6 sm:mb-8 leading-tight px-4">
               One of the Leading Agencies in the Gulf,{" "}
               <span className="gradient-text">Now in Kochi</span>
             </h1>
-            <div className="space-y-6 text-lg md:text-xl text-muted-foreground">
+            <div className="space-y-4 sm:space-y-6 text-base sm:text-lg md:text-xl text-muted-foreground px-4">
               <p className="leading-relaxed">
-                For over 7 years, Bluebird has been a beacon of digital marketing excellence in Asia. 
-                As an integrated business solution provider in Oman and the UAE, we have one mission: 
-                to deliver measurable results.
+                At Bluebird, we believe creativity should deliver measurable impact. Founded in the Gulf, Bluebird has become a trusted partner for businesses across Oman, UAE, and beyond.
               </p>
               <p className="leading-relaxed">
-                We are excited to bring our passion, expertise, and 360-degree approach to the 
-                businesses of Kochi. Our team combines international best practices with local 
-                insights to create solutions that truly resonate.
+                Our Kochi hub – Bluebird Media Solutions – is designed to deliver 360° marketing and branding services tailored to Indian and global clients. We are excited to bring our passion, expertise, and international approach to the businesses of Kochi.
               </p>
             </div>
           </motion.div>
@@ -80,15 +87,16 @@ export default function About() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-12 bg-gradient-to-b from-background via-secondary/10 to-secondary/20">
-        <StatsCounter />
+      <section className="relative overflow-hidden py-8 sm:py-12 seamless-section">
+        <div className="relative z-10">
+          <StatsCounter />
+        </div>
       </section>
 
       {/* Mission & Vision */}
-      <section className="py-24 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-secondary/20 via-primary/5 to-background"></div>
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+      <section className="py-16 sm:py-20 lg:py-24 relative overflow-hidden seamless-section">
+        <div className="container mx-auto relative z-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-6xl mx-auto">
             <motion.div
               initial={{ opacity: 0, x: -30, scale: 0.9 }}
               whileInView={{ opacity: 1, x: 0, scale: 1 }}
@@ -97,7 +105,7 @@ export default function About() {
               whileHover={{ y: -8, transition: { duration: 0.3 } }}
             >
               <Card className="h-full cursor-pointer group overflow-hidden border border-primary/10 bg-gradient-to-br from-primary-light/20 via-primary/15 to-accent/20 backdrop-blur-sm">
-                <CardContent className="p-10 relative">
+                <CardContent className="p-6 sm:p-8 lg:p-10 relative">
                   <motion.div 
                     className="absolute inset-0 bg-gradient-to-br from-primary-light/10 via-primary/5 to-primary-dark/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                   />
@@ -109,8 +117,8 @@ export default function About() {
                     >
                       <Target className="h-8 w-8 text-white" />
                     </motion.div>
-                    <h2 className="text-3xl font-display font-bold mb-4 group-hover:gradient-text transition-all duration-300">Our Mission</h2>
-                    <p className="text-foreground/80 leading-relaxed text-lg">
+                    <h2 className="text-2xl sm:text-3xl font-display font-bold mb-4 group-hover:gradient-text transition-all duration-300">Our Mission</h2>
+                    <p className="text-foreground/80 leading-relaxed text-base sm:text-lg">
                       To empower businesses with innovative digital solutions that drive growth, 
                       enhance brand visibility, and deliver measurable ROI. We strive to be more 
                       than just a service provider – we aim to be your strategic partner in success.
@@ -128,7 +136,7 @@ export default function About() {
               whileHover={{ y: -8, transition: { duration: 0.3 } }}
             >
               <Card className="h-full cursor-pointer group overflow-hidden border border-primary/10 bg-gradient-to-br from-accent/20 via-primary/15 to-primary-dark/20 backdrop-blur-sm">
-                <CardContent className="p-10 relative">
+                <CardContent className="p-6 sm:p-8 lg:p-10 relative">
                   <motion.div 
                     className="absolute inset-0 bg-gradient-to-br from-primary-light/10 via-primary/5 to-primary-dark/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                   />
@@ -140,8 +148,8 @@ export default function About() {
                     >
                       <Lightbulb className="h-8 w-8 text-white" />
                     </motion.div>
-                    <h2 className="text-3xl font-display font-bold mb-4 group-hover:gradient-text transition-all duration-300">Our Vision</h2>
-                    <p className="text-foreground/80 leading-relaxed text-lg">
+                    <h2 className="text-2xl sm:text-3xl font-display font-bold mb-4 group-hover:gradient-text transition-all duration-300">Our Vision</h2>
+                    <p className="text-foreground/80 leading-relaxed text-base sm:text-lg">
                       To be the most trusted and innovative digital agency in India, known for 
                       transforming businesses through creative excellence, cutting-edge technology, 
                       and unwavering commitment to client success.
@@ -155,9 +163,8 @@ export default function About() {
       </section>
 
       {/* Values Section */}
-      <section className="py-24 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-accent/8 to-primary/5"></div>
-        <div className="container mx-auto px-4 relative z-10">
+      <section className="py-16 sm:py-20 lg:py-24 relative overflow-hidden seamless-section">
+        <div className="container mx-auto relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -165,22 +172,30 @@ export default function About() {
             className="text-center mb-16"
           >
             <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="inline-block px-4 py-2 mb-4 glass-card rounded-full"
+              className="mb-6"
             >
-              <span className="text-sm font-semibold text-primary">Our Values</span>
+              <div className="text-center">
+                <div className="inline-flex items-center gap-2 mb-3">
+                  <div className="w-1 h-1 rounded-full bg-accent animate-pulse"></div>
+                  <div className="w-2 h-2 rounded-full bg-primary"></div>
+                  <span className="text-sm font-bold text-primary/90 uppercase tracking-[0.2em] mx-2">Our Core Values</span>
+                  <div className="w-2 h-2 rounded-full bg-primary"></div>
+                  <div className="w-1 h-1 rounded-full bg-accent animate-pulse"></div>
+                </div>
+              </div>
             </motion.div>
-            <h2 className="text-4xl md:text-6xl font-display font-bold mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-display font-bold mb-6 px-4">
               Our Core Values
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto px-4">
               The principles that guide everything we do
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto px-4">
             {values.map((value, index) => {
               const gradientVariations = [
                 "from-primary-light/20 via-primary/15 to-accent/20",
@@ -200,7 +215,7 @@ export default function About() {
                   whileHover={{ y: -8, transition: { duration: 0.3 } }}
                 >
                   <Card className={`h-full cursor-pointer group overflow-hidden border border-primary/10 bg-gradient-to-br ${bgVariation} backdrop-blur-sm`}>
-                    <CardContent className="p-8 relative">
+                    <CardContent className="p-6 sm:p-8 relative">
                       <motion.div 
                         className="absolute inset-0 bg-gradient-to-br from-primary-light/10 via-primary/5 to-primary-dark/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                       />
@@ -212,10 +227,10 @@ export default function About() {
                         >
                           <value.icon className="h-7 w-7 text-white" />
                         </motion.div>
-                        <h3 className="text-2xl font-display font-bold mb-3 group-hover:gradient-text transition-all duration-300">
+                        <h3 className="text-lg sm:text-xl lg:text-2xl font-display font-bold mb-3 group-hover:gradient-text transition-all duration-300">
                           {value.title}
                         </h3>
-                        <p className="text-foreground/80 leading-relaxed">{value.description}</p>
+                        <p className="text-foreground/80 leading-relaxed text-sm sm:text-base">{value.description}</p>
                       </div>
                     </CardContent>
                   </Card>

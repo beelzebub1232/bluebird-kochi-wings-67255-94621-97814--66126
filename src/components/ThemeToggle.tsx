@@ -4,11 +4,11 @@ import { useEffect, useState } from "react";
 
 export function ThemeToggle() {
   const [theme, setTheme] = useState<"light" | "dark">(() => {
-    // Initialize from localStorage or default to light
+    // Initialize from localStorage or default to dark
     if (typeof window !== "undefined") {
-      return (localStorage.getItem("theme") as "light" | "dark") || "light";
+      return (localStorage.getItem("theme") as "light" | "dark") || "dark";
     }
-    return "light";
+    return "dark";
   });
 
   useEffect(() => {
@@ -27,13 +27,13 @@ export function ThemeToggle() {
       variant="ghost"
       size="icon"
       onClick={toggleTheme}
-      className="transition-smooth hover:bg-accent/10"
+      className="transition-smooth hover:bg-accent/10 w-8 h-8 sm:w-10 sm:h-10"
       aria-label="Toggle theme"
     >
       {theme === "light" ? (
-        <Moon className="h-5 w-5" />
+        <Moon className="h-4 w-4 sm:h-5 sm:w-5" />
       ) : (
-        <Sun className="h-5 w-5" />
+        <Sun className="h-4 w-4 sm:h-5 sm:w-5" />
       )}
     </Button>
   );

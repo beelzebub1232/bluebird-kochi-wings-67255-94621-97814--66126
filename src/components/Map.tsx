@@ -17,9 +17,12 @@ const Map = () => {
 
     // Add OpenStreetMap tiles
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      attribution: '',
       maxZoom: 19,
     }).addTo(map.current);
+
+    // Remove attribution control
+    map.current.attributionControl.remove();
 
     // Create custom icon
     const customIcon = L.divIcon({
@@ -53,7 +56,7 @@ const Map = () => {
   }, []);
 
   return (
-    <div className="relative w-full h-[500px] rounded-3xl overflow-hidden shadow-lg">
+    <div className="relative w-full h-[300px] sm:h-[400px] lg:h-[500px] rounded-3xl overflow-hidden shadow-lg">
       <div ref={mapContainer} className="absolute inset-0" />
     </div>
   );

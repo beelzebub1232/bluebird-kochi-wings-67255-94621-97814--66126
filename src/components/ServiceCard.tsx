@@ -29,17 +29,17 @@ export function ServiceCard({ icon: Icon, title, description, delay = 0 }: Servi
       className="will-change-auto"
     >
       <Card className={`h-full cursor-pointer group overflow-hidden border border-primary/10 bg-gradient-to-br ${bgVariation} backdrop-blur-sm`}>
-        <CardContent className="p-8 relative">
+        <CardContent className="p-6 sm:p-8 relative">
           <motion.div 
             className="absolute inset-0 bg-gradient-to-br from-primary-light/10 via-primary/5 to-primary-dark/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
           />
           
           <div className="relative z-10">
-            <div className="w-16 h-16 bg-gradient-to-br from-primary-light to-primary-dark rounded-2xl flex items-center justify-center mb-6 group-hover:shadow-[var(--shadow-glow)] transition-all duration-300">
-              <Icon className="h-8 w-8 text-white" />
+            <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-primary-light to-primary-dark rounded-2xl flex items-center justify-center mb-4 sm:mb-6 group-hover:shadow-[var(--shadow-glow)] transition-all duration-300">
+              <Icon className="h-6 w-6 sm:h-7 sm:w-7 lg:h-8 lg:w-8 text-white" />
             </div>
-            <h3 className="text-xl font-display font-bold mb-3 group-hover:gradient-text transition-all duration-300">{title}</h3>
-            <p className="text-foreground/80 leading-relaxed">{description}</p>
+            <h3 className="text-lg sm:text-xl font-display font-bold mb-2 sm:mb-3 group-hover:gradient-text transition-all duration-300">{title}</h3>
+            <p className="text-foreground/80 leading-relaxed text-sm sm:text-base">{description}</p>
           </div>
         </CardContent>
       </Card>

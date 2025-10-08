@@ -39,19 +39,19 @@ function StatItem({ end, suffix = "", label }: StatProps) {
       transition={{ duration: 0.5 }}
       className="text-center"
     >
-      <div className="text-4xl md:text-5xl font-display font-bold text-primary mb-2">
+      <div className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-primary mb-2">
         {count}{suffix}
       </div>
-      <div className="text-muted-foreground">{label}</div>
+      <div className="text-muted-foreground text-sm sm:text-base">{label}</div>
     </motion.div>
   );
 }
 
 export function StatsCounter() {
   return (
-    <section className="py-16 bg-secondary/30">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <section className="py-12 sm:py-16 bg-secondary/30">
+      <div className="container mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 px-4">
           <StatItem end={1000} suffix="+" label="Projects Completed" />
           <StatItem end={50} suffix="+" label="IT Professionals" />
           <StatItem end={500} suffix="+" label="Clients Worldwide" />
