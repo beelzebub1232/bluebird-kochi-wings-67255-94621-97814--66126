@@ -104,7 +104,7 @@ export function Navigation() {
                         size="sm"
                         className={`transition-all duration-300 ${location.pathname === item.path
                           ? "bg-primary text-primary-foreground shadow-md"
-                          : "hover:bg-accent/10 text-foreground"
+                          : "hover:bg-primary/10 hover:text-primary text-foreground"
                           }`}
                       >
                         {item.name}

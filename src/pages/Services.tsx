@@ -1,4 +1,6 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { ServiceCard } from "@/components/ServiceCard";
@@ -20,6 +22,7 @@ import {
   Sparkles,
   PrinterIcon,
   Gift,
+  Rocket,
 } from "lucide-react";
 
 const services = [
@@ -201,9 +204,15 @@ export default function Services() {
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-display font-bold mb-6 leading-tight">
               Need a <span className="gradient-text">Custom Solution</span>?
             </h2>
-            <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 leading-relaxed">
               Every business is unique. Let's discuss how we can tailor our services to meet your specific needs and goals.
             </p>
+            <Link to="/contact">
+              <Button size="lg" variant="gradient" className="text-base sm:text-lg px-8 h-12">
+                <Rocket className="mr-2 h-5 w-5" />
+                Start Your Project Journey
+              </Button>
+            </Link>
           </motion.div>
         </div>
       </section>

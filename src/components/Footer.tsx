@@ -161,7 +161,7 @@ export function Footer() {
             transition={{ duration: 0.5, delay: 0.3 }}
           >
             <h3 className="font-display font-bold mb-4 sm:mb-6 text-base sm:text-lg">Contact Us</h3>
-            <ul className="space-y-3 sm:space-y-4">
+            <ul className="space-y-3 sm:space-y-4 mb-6">
               <li className="flex items-start space-x-2 sm:space-x-3">
                 <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gradient-to-br from-primary/20 to-accent/20 backdrop-blur-sm border border-primary/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
                   <MapPin className="h-3 w-3 sm:h-4 sm:w-4 text-primary" />
