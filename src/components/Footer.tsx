@@ -88,7 +88,7 @@ export function Footer() {
                 <Linkedin className="h-4 w-4 sm:h-5 sm:w-5" />
               </motion.a>
               <motion.a 
-                href="https://www.instagram.com/bluebirdmediasi" 
+                href="https://www.instagram.com/bluebirdmedias" 
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.2, y: -2 }}
